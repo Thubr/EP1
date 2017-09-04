@@ -26,19 +26,19 @@ string Serie::getNomeDoCanalY(){
 }
 
 int Serie::getQuantidade(){
-    return qnt;
+    return seq.size();
 }
 
 bool Serie::estaVazia(){
-    return qnt?false:true;
+    return seq.empty();
 }
 
 void Serie::adicionar(double x, double y){
-    if(qnt < NUMERO_MAXIMO_VALORES){
+    if(seq.size() < NUMERO_MAXIMO_VALORES){
         Ponto *p = new Ponto;
         p->setX(x);
         p->setY(y);
-        if(qnt == 0){
+        if(seq.empty()){
             *low = *p;
             *high = *p;
         }
@@ -52,8 +52,7 @@ void Serie::adicionar(double x, double y){
             if(y > high->getY())
                 high->setY(y);
         }
-        seq[qnt] = p;
-        qnt++;
+        seq.push_back(p);
     }
 }
 
@@ -66,12 +65,12 @@ Ponto* Serie::getLimiteSuperior(){
 }
 
 Ponto* Serie::getPosicao(int posicao){
-    if(0 <= posicao && posicao < qnt)
-        return seq[posicao];
+    if(0 <= posicao && posicao < seq.size())
+        return seq.at(posicao);
     return NULL;
 }
 
 void Serie::imprimir(){
-    for(int i = 0; i < qnt; i++)
-        *seq[i]->imprimir();
+    for(vector<Ponto*>::iterator it = seq.begin(); it != seq.end(); it++)
+        *it->imprimir();
 }

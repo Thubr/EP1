@@ -4,6 +4,7 @@
 #define NUMERO_MAXIMO_VALORES 10
 #include <iostream>
 #include <string>
+#include <vector>
 #include "Ponto.h"
 
 using namespace std;
@@ -11,8 +12,7 @@ using namespace std;
 class Serie {
 public:
     string id, idX, idY;
-    int qnt = 0;
-    Ponto *seq[NUMERO_MAXIMO_VALORES];
+    vector<Ponto*> seq;
     Ponto *low = new Ponto;
     Ponto *high = new Ponto;
 
