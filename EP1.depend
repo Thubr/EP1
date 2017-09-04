@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1499111915 source:c:\users\artur\documents\github\ep1\interfaceserial.cpp
+	"InterfaceSerial.h"
+	<stdio.h>
+	<vector>
+	<stdexcept>
+	<iostream>
+	<cctype>
+
+1499112591 c:\users\artur\documents\github\ep1\interfaceserial.h
+	<string>
+	<windows.h>
+
